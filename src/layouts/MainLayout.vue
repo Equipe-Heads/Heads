@@ -29,9 +29,15 @@
       <router-view />
     </q-page-container>
     </div>
-  </q-layout>
+      <div class="footer">
+<q-footer class="bg-accent" elevated>
+        <q-toolbar >
+          <q-toolbar-title class="rodape">Criado por HEADS</q-toolbar-title>
+        </q-toolbar>
+      </q-footer>
+      </div>
+</q-layout>
       </template>
-
 <script>
 import { openURL } from 'quasar'
 
@@ -67,6 +73,12 @@ export default {
   height:100%;
   z-index: -1;
   width: 50%;
+}
+
+.rodape{
+  font-size:18px;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin-left: 100px;
 }
 
 </style>
