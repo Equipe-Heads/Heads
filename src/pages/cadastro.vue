@@ -14,7 +14,7 @@
         v-model="name"
         label="Nome Completo *"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Preencha seu nome corretamente']"
+        :rules="[val => val !== null && val !== '' || 'Digite seu nome compleyo']"
       />
     </div>
 
@@ -24,56 +24,69 @@
         filled
         label="Ponto Comercial *"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Preencha seu Ponto Comercial']"
+        v-model="ponto"
+        :rules="[val => val !== null && val !== '' || 'Digite seu Ponto Comercial']"
       />
     </div>
-
-    <div class="row">
+ <div class="row">
       <q-input
+      class="forms"
         filled
-        class="forms"
         label="Endereco *"
+        :value="email"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Preencha seu endereco']"
+      v-model="endereco"
+        :rules="[val => val !== null && val !== '' || 'Digite seu endereco']"
       />
-
-      <q-input
-        filled style="margin-left: 80px"
-        label="Numero / Complemento"
-        class="forms"
-      />
-    </div>
-
-    <div class="row">
-      <q-input style="margin-bottom: 19px"
-        filled
-        class="forms"
-        label="Estado *"
-        />
 
       <q-input style="margin-left: 80px"
         filled
-        label="Cidade *"
         class="forms"
-        />
+        label="Número / Complemento *"
+        lazy-rules
+        :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
+      />
     </div>
-
     <div class="row">
-      <q-input style="margin-bottom: 19px"
+      <q-input
+      class="forms"
+        filled
+        label="Estado *"
+        :value="email"
+        lazy-rules
+        v-model="estado"
+        :rules="[val => val !== null && val !== '' || 'Digite seu Estado']"
+      />
+
+      <q-input style="margin-left: 80px"
+        filled
+        class="forms"
+        label="Cidade *"
+        v-model="cidade"
+        lazy-rules
+        :rules="[val => val !== null && val !== '' || 'Digite sua Cidade']"
+      />
+    </div>
+<div class="row">
+      <q-input
+      class="forms"
         filled
         label="Telefone *"
-        class="forms"
         type="number"
+        lazy-rules
+        v-model="telefone"
+        :rules="[val => val !== null && val !== '' || 'Digite o seu telefone']"
       />
 
       <q-input style="margin-left: 80px"
         filled
-        label="CPF *"
-        type="number"
         class="forms"
+        type="number"
+        label="CPF *"
+        lazy-rules
+        :rules="[val => val !== null && val !== '' || 'Digite o seu CPF']"
       />
     </div>
-
     <div class="row">
       <q-input
       class="forms"
@@ -81,7 +94,8 @@
         label="Email *"
         :value="email"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Preencher o email corretamente']"
+        v-model="email"
+        :rules="[val => val !== null && val !== '' || 'Preencher o email corretamente']"
       />
 
       <q-input style="margin-left: 80px"
@@ -90,7 +104,7 @@
         label="Repetir email *"
         :value="email"
         lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Preencher o email corretamente']"
+        :rules="[val => val !== null && val !== '' || 'Preencher o email corretamente']"
       />
     </div>
 
@@ -129,9 +143,19 @@ export default {
   data () {
     return {
       name: null,
-      age: null,
+      ponto: null,
+      model: '',
+      endereco: null,
+      email: null,
+      cidade: null,
+      estado: null,
 
       accept: false
+    }
+  },
+  methods: {
+    reset () {
+      this.$refs.input.resetValidation()
     }
   }
 }
