@@ -1,133 +1,195 @@
 <template>
   <q-page>
     <q-page-container>
-  <div class="q-pa-md">
-    <q-form style="width:80%"
-      @submit="onSubmit"
-      @reset="onReset"
-      class="q-gutter-md formulario"
-    >
-    <div class="row ">
-      <q-input
-      class="dados"
+      <div class="q-pa-md">
+        <q-form style="width:80%"
+          @submit="onSubmit"
+          @reset="onReset"
+          class="q-gutter-md formulario"
+        >
+      <div class="q-pa-md q-mb-xl" style="border: 1px solid grey">
+        <p style="font-size:30px;">Dados Cadastrais</p>
+      <div class="justify-between row ">
+      <q-input style="width:71%"
         filled
         v-model="name"
-        label="Nome Completo *"
-        lazy-rules
-        :rules="[val => val !== null && val !== '' || 'Digite seu nome compleyo']"
+        label="Nome / Razão Social"
+        :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
-    </div>
-
-    <div class="row">
-      <q-input
-      class="dados"
+      <q-input style="width:25%"
         filled
-        label="Ponto Comercial *"
-        lazy-rules
-        v-model="ponto"
-        :rules="[val => val !== null && val !== '' || 'Digite seu Ponto Comercial']"
-      />
-    </div>
- <div class="row">
-      <q-input
-      class="forms"
-        filled
-        label="Endereco *"
-        :value="email"
-        lazy-rules
-      v-model="endereco"
-        :rules="[val => val !== null && val !== '' || 'Digite seu endereco']"
-      />
-
-      <q-input style="margin-left: 80px"
-        filled
-        class="forms"
-        label="Número / Complemento *"
-        lazy-rules
+        label="Telefone"
+        type="number"
+        v-model="telefone"
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
     </div>
-    <div class="row">
-      <q-input
-      class="forms"
+    <div class="justify-between row">
+      <q-input style="width:50%"
+      class=""
         filled
-        label="Estado *"
-        :value="email"
-        lazy-rules
-        v-model="estado"
-        :rules="[val => val !== null && val !== '' || 'Digite seu Estado']"
+        label="Rua, Avenida, Praça, etc... (ou Somente o CEP)"
+        v-model="endereco"
+        :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
+      />
+      <q-input style="width:15%"
+        filled
+        label="Número"
+        v-model="numeroEndereco"
+        :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
 
-      <q-input style="margin-left: 80px"
+      <q-input style="width:29%"
         filled
-        class="forms"
-        label="Cidade *"
+        label="Complemento"
+        :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
+      />
+</div>
+<div class="justify-between row">
+  <q-input style="width:33%"
+        filled
+        label="Bairro"
+      v-model="bairro"
+        :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
+      />
+      <q-input style="width:20%"
+        filled
+        label="CEP"
+        type="number"
+        :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
+      />
+
+      <q-input style="width:29%"
+        filled
         v-model="cidade"
-        lazy-rules
-        :rules="[val => val !== null && val !== '' || 'Digite sua Cidade']"
-      />
-    </div>
-<div class="row">
-      <q-input
-      class="forms"
-        filled
-        label="Telefone *"
-        type="number"
-        lazy-rules
-        v-model="telefone"
-        :rules="[val => val !== null && val !== '' || 'Digite o seu telefone']"
+        label="Cidade"
+        :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
 
-      <q-input style="margin-left: 80px"
+      <q-input style="width:10%"
         filled
-        class="forms"
-        type="number"
-        label="CPF *"
-        lazy-rules
-        :rules="[val => val !== null && val !== '' || 'Digite o seu CPF']"
+        v-model="estado"
+        label="UF"
+        :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
-    </div>
-    <div class="row">
-      <q-input
-      class="forms"
+</div>
+</div>
+
+ <div class="q-pa-md q-mb-xl" style="border: 1px solid grey">
+      <p style="font-size:30px;">Documentação</p>
+      <p class="q-ma-xs" style="font-size:20px;">Pessoa</p>
+      <q-radio class="q-mr-sm" color="green" v-model="shape" :value="true" val="line" label="Fisica" />
+      <q-radio color="green" v-model="shape" val="rectangle" label="Juridica" />
+
+  <div class="pessoa-fisica row justify-between q-mt-lg" >
+    <q-input  style="width:25%"
+          filled
+          type="number"
+          label="CPF"
+          v-model="cpf"
+          :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
+        />
+    <q-input style="width:20%"
         filled
-        label="Email *"
+        type="number"
+        label="Reg. Identidade"
+        v-model="identidade"
+        :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
+      />
+    <q-input style="width:25%"
+        filled
+        type="number"
+        label="Org. Expeditor"
+        v-model="orgao"
+        :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
+      />
+    <q-input style="width:20%"
+        filled
+        v-model="dataexp"
+        type="number"
+        label="Data Exp."
+        :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
+      />
+  </div>
+
+<div class="pessoa-juridica " >
+  <div class="row">
+    <q-input style="width:100%" class=""
+        filled
+        v-model="responsavel"
+        label="Nome Completo do Responsável"
+        :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
+      />
+  </div>
+
+  <div class="justify-between row">
+    <q-input  style="width:34%"
+      filled
+      type="number"
+      label="CNPJ"
+      v-model="cnpj"
+      :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
+    />
+    <q-input style="width:30%"
+      filled
+      type="number"
+      label="Inscrição Estadual"
+      :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
+    />
+    <q-input style="width:30%"
+      filled
+      type="number"
+      label="Inscrição Municipal"
+      :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
+    />
+  </div>
+</div>
+</div>
+
+<div class="q-pa-md" style="border: 1px solid grey">
+  <p style="font-size:30px;">Login</p>
+      <div class="justify-between row ">
+        <q-input style="width:47%"
+        filled
+        label="Email"
         :value="email"
-        lazy-rules
         v-model="email"
-        :rules="[val => val !== null && val !== '' || 'Preencher o email corretamente']"
+        :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
-
-      <q-input style="margin-left: 80px"
+        <q-input style="width:47%"
         filled
-        class="forms"
-        label="Repetir email *"
+        class=""
+        label="Repetir email"
         :value="email"
-        lazy-rules
-        :rules="[val => val !== null && val !== '' || 'Preencher o email corretamente']"
+        v-model="email2"
+        :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
-    </div>
+      </div>
 
-    <div class="row">
-      <q-input
+      <div class="justify-between row">
+      <q-input style="width:47%"
         filled
-        class="forms"
-        label="Senha *"
+        v-model="senha"
+        label="Senha"
         type="password"
-        lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Minimo de 8 caracteres']"
-      />
+        :rules="[
+          val => !!val || 'Campo Obrigatório',
+          val => val.length > 8 || 'Mínimo de 8 caracteres',
+        ]"
+        />
 
-      <q-input style="margin-left: 80px"
+      <q-input style="width:47%"
         filled
-        class="forms"
-        label="Repetir Senha *"
+        v-model="senha2"
+        label="Repetir Senha"
         type="password"
-        lazy-rules
-        :rules="[ val => val && val.length > 0 || 'Minimo de 8 caracteres']"
-      />
+        :rules="[
+          val => !!val || 'Campo Obrigatório',
+          val => val.length > 8 || 'Mínimo de 8 caracteres',
+        ]"
+        />
     </div>
-
+</div>
       <div align="center">
         <q-btn class="botao-cadastrar" label="CADASTRAR" type="submit"/>
       </div>
@@ -143,14 +205,23 @@ export default {
   data () {
     return {
       name: null,
-      ponto: null,
-      model: '',
+      telefone: null,
       endereco: null,
-      email: null,
+      numeroEndereco: null,
+      bairro: null,
+      cep: null,
       cidade: null,
       estado: null,
-
-      accept: false
+      cpf: null,
+      identidade: null,
+      responsavel: null,
+      cnpj: null,
+      email: null,
+      email2: null,
+      senha: '',
+      senha2: '',
+      accept: false,
+      shape: 'line'
     }
   },
   methods: {
@@ -159,6 +230,7 @@ export default {
     }
   }
 }
+
 </script>
 
 <style lang="stylus">
