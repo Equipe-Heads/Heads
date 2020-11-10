@@ -27,8 +27,10 @@
             </div>
 <q-dialog v-model="entrar">
       <q-card>
-        <q-card-section class="row bg-brown-12 items-center q-pb-none">
-          <div class="absolute-center text-h6">Log in</div>
+        <q-card-section class="row items-center q-pb-none">
+          <div class="text-h6">
+              <q-img src="..//assets/ecoprod.png" width="130px" />
+          </div>
           <q-space />
           <q-btn  icon="close" flat round dense v-close-popup />
         </q-card-section>
