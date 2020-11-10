@@ -27,12 +27,11 @@
             </div>
 <q-dialog v-model="entrar">
       <q-card>
-        <q-card-section class="row bg-brown-11 items-center q-pb-none">
+        <q-card-section class="row bg-brown-12 items-center q-pb-none">
           <div class="absolute-center text-h6">Log in</div>
           <q-space />
           <q-btn  icon="close" flat round dense v-close-popup />
         </q-card-section>
-
         <q-card-section>
         <q-input square filled
         bottom-slots
