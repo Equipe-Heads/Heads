@@ -14,6 +14,7 @@
         filled
         v-model="name"
         label="Nome / Razão Social"
+        lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
       <q-input style="width:25%"
@@ -21,6 +22,7 @@
         label="Telefone"
         type="number"
         v-model="telefone"
+        lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
     </div>
@@ -30,18 +32,21 @@
         filled
         label="Rua, Avenida, Praça, etc... (ou Somente o CEP)"
         v-model="endereco"
+        lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
       <q-input style="width:15%"
         filled
         label="Número"
         v-model="numeroEndereco"
+        lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
 
       <q-input style="width:29%"
         filled
         label="Complemento"
+        lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
 </div>
@@ -50,12 +55,14 @@
         filled
         label="Bairro"
       v-model="bairro"
+      lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
       <q-input style="width:20%"
         filled
         label="CEP"
         type="number"
+        lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
 
@@ -63,6 +70,7 @@
         filled
         v-model="cidade"
         label="Cidade"
+        lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
 
@@ -70,6 +78,7 @@
         filled
         v-model="estado"
         label="UF"
+        lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
 </div>
@@ -78,7 +87,7 @@
  <div class="q-pa-md q-mb-xl" style="border: 1px solid grey">
       <p style="font-size:30px;">Documentação</p>
       <p class="q-ma-xs" style="font-size:20px;">Pessoa</p>
-      <q-radio class="q-mr-sm" color="green" v-model="shape" :value="true" val="line" label="Fisica" />
+      <q-radio unchecked-icon="visibility_off" checked-icon="visibility" class="q-mr-sm" color="green" v-model="shape" val="line" label="Fisica" />
       <q-radio color="green" v-model="shape" val="rectangle" label="Juridica" />
 
   <div class="pessoa-fisica row justify-between q-mt-lg" >
@@ -87,6 +96,7 @@
           type="number"
           label="CPF"
           v-model="cpf"
+          lazy-rules
           :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
         />
     <q-input style="width:20%"
@@ -94,6 +104,7 @@
         type="number"
         label="Reg. Identidade"
         v-model="identidade"
+        lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
     <q-input style="width:25%"
@@ -101,6 +112,7 @@
         type="number"
         label="Org. Expeditor"
         v-model="orgao"
+        lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
     <q-input style="width:20%"
@@ -108,6 +120,7 @@
         v-model="dataexp"
         type="number"
         label="Data Exp."
+        lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
   </div>
@@ -118,6 +131,7 @@
         filled
         v-model="responsavel"
         label="Nome Completo do Responsável"
+        lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
   </div>
@@ -128,18 +142,21 @@
       type="number"
       label="CNPJ"
       v-model="cnpj"
+      lazy-rules
       :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
     />
     <q-input style="width:30%"
       filled
       type="number"
       label="Inscrição Estadual"
+      lazy-rules
       :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
     />
     <q-input style="width:30%"
       filled
       type="number"
       label="Inscrição Municipal"
+      lazy-rules
       :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
     />
   </div>
@@ -154,6 +171,7 @@
         label="Email"
         :value="email"
         v-model="email"
+        lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
         <q-input style="width:47%"
@@ -162,6 +180,7 @@
         label="Repetir email"
         :value="email"
         v-model="email2"
+        lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
       </div>
@@ -172,9 +191,10 @@
         v-model="senha"
         label="Senha"
         type="password"
+        lazy-rules
         :rules="[
           val => !!val || 'Campo Obrigatório',
-          val => val.length > 8 || 'Mínimo de 8 caracteres',
+          val => val.length >= 6 || 'Mínimo de 6 caracteres',
         ]"
         />
 
@@ -183,9 +203,10 @@
         v-model="senha2"
         label="Repetir Senha"
         type="password"
+        lazy-rules
         :rules="[
           val => !!val || 'Campo Obrigatório',
-          val => val.length > 8 || 'Mínimo de 8 caracteres',
+          val => val.length >= 6 || 'Mínimo de 6 caracteres',
         ]"
         />
     </div>
