@@ -7,7 +7,7 @@
         :inverted="$q.theme === 'ios'"
       >
       <q-toolbar-title>
-          <q-img src="..//assets/ecoprod.png" width="170px" />
+          <q-img to="/Index.vue" src="..//assets/ecoprod.png" width="170px" />
 </q-toolbar-title>
 <div class="gt-sm menu-topicos">
 <q-btn flat color="neutral" label="Produtos" />
