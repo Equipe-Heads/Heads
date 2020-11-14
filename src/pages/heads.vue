@@ -1,9 +1,10 @@
 <template>
   <q-page>
     <q-page-container>
-<div class="cima">
-<h2>HEADS</h2>
-<p>O que é a Equipe HEADS? O que é o Projeto EcoProd e qual o propósito dessa iniciativa? Essa página é reservada exclusivamente para atender estas dúvidas.</p>
+<div class="text-center cima">
+<h2 class="text-center q-pt-xl">HEADS</h2>
+<p class="q-pa-lg ">O que é a Equipe HEADS? O que é o Projeto EcoProd e qual o propósito
+  dessa iniciativa?<br> Essa página é reservada exclusivamente para atender estas dúvidas.</p>
 </div>
   <div class="conteudo">
 <header>
@@ -36,8 +37,7 @@ export default {
 <style type="text/css">
 
 .cima h2{
-  padding-top: 14%;
-  text-align: center;
+  padding-top:5%;
   margin-bottom: 5%;
   font-family: 'Libre Baskerville', serif;
   letter-spacing: 0.2em;
@@ -47,11 +47,7 @@ export default {
 }
 
 .cima p{
-  text-align: center;
-  padding-right: 5%;
-  padding-left: 5%;
   font-size: 20px;
-  margin-bottom: 15%;
 }
 
 .conteudo{

@@ -1,6 +1,10 @@
 <template>
   <q-page>
     <q-page-container>
+         <div>
+      <q-btn flat to="/pontocomercial"><q-icon  size="100px" name="keyboard_arrow_left" />
+      </q-btn>
+      </div>
       <div class="q-pa-md">
         <q-form style="width:80%"
           @submit="onSubmit"
