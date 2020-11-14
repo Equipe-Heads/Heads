@@ -13,7 +13,7 @@
 <q-btn flat color="neutral" label="Produtos" />
 <q-btn flat color="neutral" label="Local" />
 <q-btn to="/pontocomercial" flat color="neutral" label="Ponto Comercial" />
-<q-btn flat color="neutral" label="Heads" />
+<q-btn to="/heads" flat color="neutral" label="Heads" />
 <q-btn flat color="neutral" label="Dados" />
 
 </div>
