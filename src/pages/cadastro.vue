@@ -91,10 +91,10 @@
  <div class="q-pa-md q-mb-xl" style="border: 1px solid grey">
       <p style="font-size:30px;">Documentação</p>
       <p class="q-ma-xs" style="font-size:20px;">Pessoa</p>
-      <q-radio unchecked-icon="visibility_off" checked-icon="visibility" class="q-mr-sm" color="green" v-model="shape" val="line" label="Fisica" />
-      <q-radio color="green" v-model="shape" val="rectangle" label="Juridica" />
+      <q-radio class="q-mr-sm" color="green" val="line" v-model="shape" label="Fisica" />
+      <q-radio color="green" v-model="shape" label="Juridica" />
 
-  <div class="pessoa-fisica row justify-between q-mt-lg" >
+  <div v-if="shape" class="fisica row justify-between q-mt-lg" >
     <q-input  style="width:25%"
           filled
           type="number"
@@ -129,7 +129,7 @@
       />
   </div>
 
-<div class="pessoa-juridica " >
+<div v-else class="q-mt-lg pessoa-juridica " >
   <div class="row">
     <q-input style="width:100%" class=""
         filled
