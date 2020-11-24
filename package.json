@@ -2,7 +2,7 @@
   "name": "heads",
   "version": "0.0.1",
   "description": "Projeto desenvolvido pela equipe heads da ficr 2020.2 utilizando quasar, vuejs",
-  "productName": "Quasar App",
+  "productName": "Ecoprod",
   "author": "Renata <renatapca86@gmail.com>",
   "private": true,
   "scripts": {
