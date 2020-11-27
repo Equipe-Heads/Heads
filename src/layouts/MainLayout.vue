@@ -11,7 +11,7 @@
 </q-btn>
 </q-toolbar-title>
 <div class="gt-sm menu-topicos">
-<q-btn flat color="neutral" label="Produtos" />
+<q-btn to="/produtos" flat color="neutral" label="Produtos" />
 <q-btn flat color="neutral" label="Local" />
 <q-btn to="/pontocomercial" flat color="neutral" label="Ponto Comercial" />
 <q-btn to="/heads" flat color="neutral" label="Heads" />
