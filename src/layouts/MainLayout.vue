@@ -12,10 +12,10 @@
 </q-toolbar-title>
 <div class="gt-sm menu-topicos">
 <q-btn to="/produtos" flat color="neutral" label="Produtos" />
-<q-btn flat color="neutral" label="Local" />
+<q-btn to="/local" flat color="neutral" label="Local" />
 <q-btn to="/pontocomercial" flat color="neutral" label="Ponto Comercial" />
 <q-btn to="/heads" flat color="neutral" label="Heads" />
-<q-btn flat color="neutral" label="Dados" />
+<q-btn to="/dados" flat color="neutral" label="Dados" />
 
 </div>
 <div class="lt-md">
