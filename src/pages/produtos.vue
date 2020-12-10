@@ -12,12 +12,23 @@
         outlined
         placeholder="Pesquisar"
       >
+      <template>
+  <div class="fixed">
+    <q-option-group
+      :options="options"
+      label="Notifications"
+      type="radio"
+      v-model="group"
+    />
+  </div>
+</template>
         <template v-slot:append>
           <q-btn
           color="green-10"
           class="cursor-pointer botaolupa" icon="search"  />
         </template>
       </q-input>
+
       </div>
     </div>
   </q-page-container>
@@ -28,7 +39,12 @@
 export default {
   data () {
     return {
-      entrar: false
+      group: null,
+      options: [
+        { label: 'Produto', value: 'bat', color: 'green' },
+        { label: 'Local', value: 'friend', color: 'green' },
+        { label: 'Categoria', value: 'upload', color: 'green' }
+      ]
     }
   }
 }
@@ -44,4 +60,8 @@ export default {
 .botaolupa{
     height 40px;
     }
+
+.fixed{
+  margin-left 550px;
+}
 </style>
