@@ -1,40 +1,36 @@
 <template>
     <q-page>
         <q-page-container>
-        <div class="row" align ="margin-left">
-        <div class="col">
-            <q-input
-            class="campodepesquisa"
-            color="black"
-            bg-color="white"
-        v-model="search"
-        debounce="500"
-        outlined
-        placeholder="Pesquisar"
-      >
-      <template>
-  <div class="fixed">
-    <q-option-group
-      :options="options"
-      label="Notifications"
-      type="radio"
-      v-model="group"
-    />
-  </div>
-</template>
-        <template v-slot:append>
-          <q-btn
-          color="green-10"
-          class="cursor-pointer botaolupa" icon="search"  />
-        </template>
-      </q-input>
-
-      </div>
-    </div>
+          <div class="row justify-between">
+            <div class="campodepesquisa col-5">
+                <q-input
+                class=""
+                color="black"
+                bg-color="white"
+            v-model="search"
+            debounce="500"
+            outlined
+            placeholder="Pesquisar"
+          >
+                <template v-slot:append>
+                  <q-btn
+                  color="green-10"
+                  class="cursor-pointer botaolupa" icon="search"  />
+                </template>
+                </q-input>
+            </div>
+            <div class="botao-radio q-mt-xl col-4">
+                <q-option-group
+                  :options="options"
+                  label="Notifications"
+                  type="radio"
+                  v-model="group"
+                />
+            </div>
+          </div>
   </q-page-container>
 </q-page>
 </template>
-
 <script>
 export default {
   data () {
@@ -52,16 +48,16 @@ export default {
 <style lang="stylus">
 
 .campodepesquisa{
-    margin-top 100px;
-    margin-left 150px;
-    width 40%;
+  margin-top 200px;
+  margin-left 150px;
+  width 80%;
     }
 
 .botaolupa{
     height 40px;
     }
 
-.fixed{
-  margin-left 550px;
+.botao-radio{
+  margin-top: 170px;
 }
 </style>
