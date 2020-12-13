@@ -21,8 +21,8 @@ bem-estar dos animais e dos trabalhadores envolvidos em sua rede de produção.<
 </div>
 
 <div class="cartoes q-pa-md row items-start q-gutter-md">
-<q-card class="my-card .col-12 .col-md-2 shadow-9">
-  <q-img src="../assets/vegetais.jpg" style="width:100%" />
+<q-card class="my-card .col-md-12 .offset-md-6 shadow-9">
+  <q-img src="../assets/vegetais.jpg"  />
   <q-card-section>
     <div class="text-h5 q-mt-sm q-mb-xs conceitos "><strong><h6>PRODUTOS VEGETAIS</h6></strong></div>
       </q-card-section>
@@ -31,8 +31,8 @@ bem-estar dos animais e dos trabalhadores envolvidos em sua rede de produção.<
       </q-card-section>
     </q-card>
 
-<q-card class="my-card .col-12 .col-md-2 shadow-9">
-  <q-img src="../assets/animal.jpg" style="width:100%" />
+<q-card class="my-card .col-md-12 .offset-md-6 shadow-9">
+  <q-img src="../assets/animal.jpg" />
       <q-card-section>
         <div class="text-h5 q-mt-sm q-mb-xs conceitos "><strong><h6>PRODUTOS ANIMAIS</h6></strong></div>
       </q-card-section>
@@ -41,8 +41,8 @@ bem-estar dos animais e dos trabalhadores envolvidos em sua rede de produção.<
       </q-card-section>
     </q-card>
 
-    <q-card class="my-card .col-12 .col-md-2 shadow-9">
-      <q-img src="../assets/mercado.jpg" style="width:100%" />
+    <q-card class="my-card .col-md-12 .offset-md-6 shadow-9">
+      <q-img src="../assets/mercado.jpg"  />
       <q-card-section>
         <div class="text-h5 q-mt-sm q-mb-xs conceitos "><strong><h6>PRODUTOS INDUSTRIAIS</h6></strong></div>
       </q-card-section>
@@ -91,7 +91,7 @@ h2.titulo{
 .topo p{
   text-align: center;
   color:#4a3a3a;
-    font-size: 1.5em;
+    font-size: 1.3em;
     margin-left:20%;
     margin-right:20%;
 }
@@ -140,8 +140,10 @@ p {
   font-size: 14px;
   }
 
-.my-card {
+@media screen and (min-width: 900px) {
+  .my-card {
   width: 30%;
+}
 }
 
 h6{
