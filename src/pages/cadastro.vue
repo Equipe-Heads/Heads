@@ -1,14 +1,13 @@
 <template>
   <q-page>
     <q-page-container>
-         <div>
-      <q-btn flat to="/pontocomercial"><q-icon  size="100px" name="keyboard_arrow_left" />
-      </q-btn>
+      <div>
+        <q-btn flat to="/pontocomercial"><q-icon  size="100px" name="keyboard_arrow_left" />
+        </q-btn>
       </div>
       <div class="q-pa-md">
         <q-form style="width:80%"
           @submit="onSubmit"
-          @reset="onReset"
           class="q-gutter-md formulario"
         >
       <div class="q-pa-md q-mb-xl" style="border: 1px solid grey">
@@ -16,7 +15,7 @@
       <div class="justify-between row ">
       <q-input style="width:71%"
         filled
-        v-model="nome"
+        v-model="dadpes.nome"
         label="Nome / Razão Social"
         lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
@@ -24,8 +23,7 @@
       <q-input style="width:25%"
         filled
         label="Telefone"
-        type="number"
-        v-model="telefone"
+        v-model="dadpes.codigo"
         lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
@@ -35,14 +33,14 @@
       class=""
         filled
         label="Rua, Avenida, Praça, etc... (ou Somente o CEP)"
-        v-model="endereco"
+        v-model="dadpes.logradoro"
         lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
       <q-input style="width:15%"
         filled
         label="Número"
-        v-model="numeroEndereco"
+        v-model="dadpes.numero"
         lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
@@ -50,6 +48,7 @@
       <q-input style="width:29%"
         filled
         label="Complemento"
+        v-model="dadpes.complemento"
         lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
@@ -58,21 +57,21 @@
   <q-input style="width:33%"
         filled
         label="Bairro"
-      v-model="bairro"
+      v-model="dadpes.bairro"
       lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
       <q-input style="width:20%"
         filled
         label="CEP"
-        type="number"
+        v-model="dadpes.cep"
         lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
 
       <q-input style="width:29%"
         filled
-        v-model="cidade"
+        v-model="dadpes.cidade"
         label="Cidade"
         lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
@@ -80,7 +79,7 @@
 
       <q-input style="width:10%"
         filled
-        v-model="estado"
+        v-model="dadpes.uf"
         label="UF"
         lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
@@ -91,49 +90,46 @@
  <div class="q-pa-md q-mb-xl" style="border: 1px solid grey">
       <p style="font-size:30px;">Documentação</p>
       <p class="q-ma-xs" style="font-size:20px;">Pessoa</p>
-      <q-radio class="q-mr-sm" color="green" val="line" v-model="shape" label="Fisica" />
-      <q-radio color="green" v-model="shape" label="Juridica" />
+      <q-radio class="q-mr-sm" color="green" val="line" v-model="dadpes.shape" label="Fisica" />
+      <q-radio color="green" v-model="dadpes.shape" label="Juridica" />
 
-  <div v-if="shape" class=" row justify-between q-mt-lg" >
+  <div v-if="dadpes.shape" class="fisica row justify-between q-mt-lg" >
     <q-input  style="width:25%"
           filled
-          type="number"
           label="CPF"
-          v-model="cpf"
+          v-model="dadpes.cpf"
           lazy-rules
           :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
         />
     <q-input style="width:20%"
         filled
-        type="number"
         label="Reg. Identidade"
-        v-model="identidade"
+        v-model="dadpes.rg"
         lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
     <q-input style="width:25%"
         filled
-        type="number"
         label="Org. Expeditor"
-        v-model="orgao"
+        v-model="dadpes.orgao"
         lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
     <q-input style="width:20%"
         filled
-        v-model="dataexp"
-        type="number"
+        v-model="dadpes.expedicao"
+        type="date"
         label="Data Exp."
         lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
   </div>
 
-<div v-else class="q-mt-lg " >
+<div v-else class="q-mt-lg pessoa-juridica " >
   <div class="row">
     <q-input style="width:100%" class=""
         filled
-        v-model="responsavel"
+        v-model="dadpes.responsavel"
         label="Nome Completo do Responsável"
         lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
@@ -143,23 +139,22 @@
   <div class="justify-between row">
     <q-input  style="width:34%"
       filled
-      type="number"
       label="CNPJ"
-      v-model="cnpj"
+      v-model="dadpes.cnpj"
       lazy-rules
       :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
     />
     <q-input style="width:30%"
       filled
-      type="number"
       label="Inscrição Estadual"
+      v-model="dadpes.inscEst"
       lazy-rules
       :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
     />
     <q-input style="width:30%"
       filled
-      type="number"
       label="Inscrição Municipal"
+      v-model="dadpes.inscMun"
       lazy-rules
       :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
     />
@@ -174,7 +169,7 @@
         filled
         label="Email"
         :value="email"
-        v-model="email"
+        v-model="dadpes.email"
         lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
@@ -183,7 +178,7 @@
         class=""
         label="Repetir email"
         :value="email"
-        v-model="email2"
+        v-model="dadpes.email2"
         lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
       />
@@ -192,7 +187,7 @@
       <div class="justify-between row">
       <q-input style="width:47%"
         filled
-        v-model="senha"
+        v-model="dadpes.senha"
         label="Senha"
         type="password"
         lazy-rules
@@ -204,7 +199,7 @@
 
       <q-input style="width:47%"
         filled
-        v-model="senha2"
+        v-model="dadpes.senha2"
         label="Repetir Senha"
         type="password"
         lazy-rules
@@ -229,48 +224,84 @@
 export default {
   data () {
     return {
-      nome: null,
-      telefone: null,
-      endereco: null,
-      numeroEndereco: null,
-      bairro: null,
-      cep: null,
-      cidade: null,
-      estado: null,
-      cpf: null,
-      identidade: null,
-      responsavel: null,
-      cnpj: null,
-      email: null,
-      email2: null,
-      senha: '',
-      senha2: '',
-      shape: 'line'
+      dadpes: {
+        nome: '',
+        telefone: '',
+        codigo: '',
+        logradoro: '',
+        numero: '',
+        complemento: '',
+        bairro: '',
+        cep: '',
+        cidade: '',
+        uf: '',
+        cpf: '',
+        rg: '',
+        orgao: '',
+        expedicao: '',
+        responsavel: '',
+        cnpj: '',
+        inscEst: '',
+        inscMun: '',
+        email: '',
+        email2: '',
+        senha: '',
+        senha2: '',
+        shape: 'line'
+      }
     }
   },
+  // data () {
+  //   return {
+  //     name: null,
+  //     telefone: null,
+  //     endereco: null,
+  //     numeroEndereco: null,
+  //     bairro: null,
+  //     cep: null,
+  //     cidade: null,
+  //     estado: null,
+  //     cpf: null,
+  //     identidade: null,
+  //     responsavel: null,
+  //     cnpj: null,
+  //     email: null,
+  //     email2: null,
+  //     senha: '',
+  //     senha2: '',
+  //     accept: false,
+  //     shape: 'line'
+  //   }
+  // },
   methods: {
     reset () {
       this.$refs.input.resetValidation()
+    },
+    onSubmit () {
+      // var dsp = document.getElementById('PesFis').style.display
+      // if (dsp === 'block') {
+      //   this.dadpes.cnpj = ''
+      // } else {
+      //   this.dadpes.cpf = ''
+      // }
+      this.$axios.post('http://localhost:5000/pes', this.dadpes).then(res => {
+        console.log(res.data)
+      })
     }
   }
 }
-
 </script>
 
 <style lang="stylus">
-
 .formulario{
   margin:8%;
 }
-
 .dados{
   width:98%;
 }
-
 .forms{
   width 45% ;
 }
-
 .botao-cadastrar{
   width: 260px;
     height: 56px;
