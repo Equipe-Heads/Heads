@@ -16,7 +16,7 @@
       <div class="justify-between row ">
       <q-input style="width:71%"
         filled
-        v-model="name"
+        v-model="nome"
         label="Nome / Razão Social"
         lazy-rules
         :rules="[val => val !== null && val !== '' || 'Campo Obrigatório']"
@@ -94,7 +94,7 @@
       <q-radio class="q-mr-sm" color="green" val="line" v-model="shape" label="Fisica" />
       <q-radio color="green" v-model="shape" label="Juridica" />
 
-  <div v-if="shape" class="fisica row justify-between q-mt-lg" >
+  <div v-if="shape" class=" row justify-between q-mt-lg" >
     <q-input  style="width:25%"
           filled
           type="number"
@@ -129,7 +129,7 @@
       />
   </div>
 
-<div v-else class="q-mt-lg pessoa-juridica " >
+<div v-else class="q-mt-lg " >
   <div class="row">
     <q-input style="width:100%" class=""
         filled
@@ -229,7 +229,7 @@
 export default {
   data () {
     return {
-      name: null,
+      nome: null,
       telefone: null,
       endereco: null,
       numeroEndereco: null,
@@ -245,7 +245,6 @@ export default {
       email2: null,
       senha: '',
       senha2: '',
-      accept: false,
       shape: 'line'
     }
   },
