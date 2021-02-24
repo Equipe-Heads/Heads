@@ -8,9 +8,7 @@ const routes = [
       { path: '/pontocomercial', component: () => import('pages/pontocomercial.vue') },
       { path: '/cadastro', component: () => import('pages/cadastro.vue') },
       { path: '/heads', component: () => import('pages/heads.vue') },
-      { path: '/produtos', component: () => import('pages/produtos.vue') },
-      { path: '/local', component: () => import('pages/local.vue') },
-      { path: '/dados', component: () => import('pages/dados.vue') }
+      { path: '/produtos', component: () => import('pages/produtos.vue') }
     ]
   },
 

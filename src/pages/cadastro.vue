@@ -1,3 +1,4 @@
+/*eslint-disable */
 <template>
   <q-page>
     <q-page-container>
